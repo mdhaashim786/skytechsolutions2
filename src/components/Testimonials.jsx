@@ -1,66 +1,62 @@
-import { Star, Quote, ShieldCheck, StarHalf } from 'lucide-react'
+import { Star, Quote, ShieldCheck, StarHalf, MapPin } from 'lucide-react'
 
-// Real reviews sourced from Clutch (clutch.co/profile/skytech-solutions)
+// Real reviews sourced from Google (skytechsolutions.us)
 const reviews = [
   {
-    name: 'Edward Pilkington',
-    role: 'Chief Marketing Officer',
-    company: 'Diageo',
-    initials: 'EP',
+    name: 'Shoiabur Mohammed',
+    initials: 'SM',
     rating: 5,
-    project: 'Order Processing & Inventory Management',
+    when: 'a year ago',
+    meta: '7 reviews · 8 photos',
     gradient: 'from-blue-500 to-cyan-400',
-    text: 'Their proactive approach kept things on track, and dedication stood out at every stage of the engagement.',
+    text: 'The best customer service I have received so far for any electronics repair. One stop solution for all electronic repairs — had my Dell laptop screen replaced and my LG TV fixed at a very reasonable price. Highly recommend.',
   },
   {
-    name: 'Sankaran Jayagopi',
-    role: 'CTO',
-    company: 'PsiberTech Solutions',
-    initials: 'SJ',
+    name: 'Imran Pathan',
+    initials: 'IP',
     rating: 5,
-    project: 'IT & Business Services',
+    when: 'Edited a year ago',
+    meta: '3 reviews',
     gradient: 'from-indigo-500 to-purple-500',
-    text: 'They feel like an integral part of our team — responsive, reliable, and deeply invested in our success.',
+    text: 'The best folks to reach out for your IT needs. Highly recommend them.',
   },
   {
-    name: 'Grace Ottley',
-    role: 'CEO',
-    company: 'All City Duct Cleaning',
-    initials: 'GO',
-    rating: 4.5,
-    project: 'Digital Marketing, Customer Service & Sales',
+    name: 'David Hyson',
+    initials: 'DH',
+    rating: 5,
+    when: '5 years ago',
+    meta: '5 reviews',
     gradient: 'from-fuchsia-500 to-pink-400',
-    text: 'What stood out most about SkyTech Solutions was their all-in-one service offering — one partner for everything we needed.',
+    text: 'I get the friendliest customer service. I would recommend Sky Tech to my friends and family.',
   },
   {
-    name: 'Mai Alosaimi',
-    role: 'Budget Controller',
-    company: 'Telecom Company',
-    initials: 'MA',
+    name: 'BAABA SULE',
+    initials: 'BS',
     rating: 5,
-    project: 'Custom Software Development',
+    when: '5 years ago',
+    meta: 'Local Guide · 12 reviews · 49 photos',
+    localGuide: true,
     gradient: 'from-emerald-500 to-teal-400',
-    text: 'They ensured complete transparency and timely project execution from kickoff all the way through to delivery.',
+    text: 'It was a great experience. Good and professional service that I can recommend to my friends.',
   },
   {
-    name: 'Ned Linnen',
-    role: 'EVP & Chief HR Officer',
-    company: 'Avis Budget Group',
-    initials: 'NL',
+    name: 'Madhu Mohan Damodaran',
+    initials: 'MM',
     rating: 5,
-    project: 'Call Center Services',
+    when: '5 years ago',
+    meta: 'Local Guide · 31 reviews · 17 photos',
+    localGuide: true,
     gradient: 'from-amber-500 to-orange-400',
-    text: 'They balanced accuracy with an ear-to-ear customer focus — the kind of operational quality that is genuinely hard to find.',
+    categories: ['Responsiveness', 'Quality', 'Professionalism', 'Value'],
   },
   {
-    name: 'Joe Lewis',
-    role: 'President of Sales',
-    company: 'Merchants Bank Inc.',
-    initials: 'JL',
-    rating: 4,
-    project: 'BPO & Call Center Services',
+    name: 'Kimberly Scott',
+    initials: 'KS',
+    rating: 5,
+    when: '5 years ago',
+    meta: '2 reviews · 1 photo',
     gradient: 'from-sky-500 to-blue-500',
-    text: 'The relationship with the staff on a personal and business level is exceptional — they treat our customers like their own.',
+    categories: ['Responsiveness', 'Quality', 'Professionalism', 'Value'],
   },
 ]
 
@@ -80,6 +76,30 @@ function Stars({ rating }) {
   )
 }
 
+function GoogleG({ className = 'h-4 w-4' }) {
+  // Google "G" mark
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path
+        fill="#4285F4"
+        d="M21.6 12.227c0-.694-.062-1.36-.18-2H12v3.787h5.39a4.61 4.61 0 0 1-2 3.025v2.513h3.235c1.892-1.744 2.975-4.31 2.975-7.325Z"
+      />
+      <path
+        fill="#34A853"
+        d="M12 22c2.7 0 4.964-.895 6.625-2.448l-3.235-2.513c-.896.6-2.04.957-3.39.957-2.604 0-4.81-1.76-5.598-4.123H3.063v2.59A10 10 0 0 0 12 22Z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M6.402 13.873A6.012 6.012 0 0 1 6.09 12c0-.65.112-1.282.31-1.873v-2.59H3.064A10 10 0 0 0 2 12c0 1.612.385 3.137 1.063 4.463l3.34-2.59Z"
+      />
+      <path
+        fill="#EA4335"
+        d="M12 5.998c1.467 0 2.785.503 3.823 1.491l2.866-2.865C16.96 3.014 14.696 2 12 2A9.998 9.998 0 0 0 3.063 7.537l3.34 2.59C7.19 7.762 9.395 6 12 6Z"
+      />
+    </svg>
+  )
+}
+
 export default function Testimonials() {
   return (
     <section className="section-pad relative">
@@ -91,18 +111,19 @@ export default function Testimonials() {
             <span className="gradient-text">real businesses</span>
           </h2>
           <p className="mt-5 text-lg text-slate-300">
-            Don't take our word for it — here's what teams shipping with SkyTech
-            have to say.
+            Don't take our word for it — here's what our customers say on
+            Google.
           </p>
 
           {/* Aggregate rating */}
           <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2 backdrop-blur-xl">
-            <Stars rating={4.8} />
-            <span className="text-sm font-semibold text-white">4.8 / 5</span>
+            <GoogleG className="h-4 w-4" />
+            <span className="text-sm font-semibold text-white">5.0</span>
+            <Stars rating={5} />
             <span className="text-sm text-slate-400">·</span>
             <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-300">
               <ShieldCheck className="h-3.5 w-3.5 text-cyan-300" />
-              Verified on Clutch
+              Verified Google reviews
             </span>
           </div>
         </div>
@@ -115,15 +136,32 @@ export default function Testimonials() {
             >
               <Quote className="absolute right-6 top-6 h-10 w-10 text-white/[0.06] group-hover:text-white/[0.12] transition-colors" />
 
-              <Stars rating={r.rating} />
+              <div className="flex items-center justify-between gap-3">
+                <Stars rating={r.rating} />
+                <GoogleG className="h-3.5 w-3.5 opacity-80" />
+              </div>
 
-              <p className="mt-5 text-[15px] leading-relaxed text-slate-200">
-                "{r.text}"
-              </p>
-
-              <p className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] font-medium text-slate-400">
-                {r.project}
-              </p>
+              {r.text ? (
+                <p className="mt-5 text-[15px] leading-relaxed text-slate-200">
+                  "{r.text}"
+                </p>
+              ) : (
+                <div className="mt-5">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300">
+                    Positive
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {r.categories.map((c) => (
+                      <span
+                        key={c}
+                        className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[11px] font-medium text-slate-200"
+                      >
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-7 flex items-center gap-3.5 border-t border-white/10 pt-5">
                 <div
@@ -131,10 +169,23 @@ export default function Testimonials() {
                 >
                   {r.initials}
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-white">{r.name}</p>
-                  <p className="text-xs text-slate-400">
-                    {r.role} · {r.company}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5">
+                    <p className="truncate text-sm font-semibold text-white">
+                      {r.name}
+                    </p>
+                    {r.localGuide && (
+                      <span
+                        title="Google Local Guide"
+                        className="inline-flex items-center gap-0.5 rounded-full bg-amber-300/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-200"
+                      >
+                        <MapPin className="h-2.5 w-2.5" />
+                        Local Guide
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-0.5 text-xs text-slate-400">
+                    {r.meta} · {r.when}
                   </p>
                 </div>
               </div>
@@ -143,14 +194,14 @@ export default function Testimonials() {
         </div>
 
         <p className="reveal mt-10 text-center text-xs text-slate-500">
-          Reviews sourced from verified clients on{' '}
+          Reviews shown as posted on{' '}
           <a
-            href="https://clutch.co/profile/skytech-solutions"
+            href="https://www.google.com/search?q=skytechsolutions.us+reviews"
             target="_blank"
             rel="noreferrer"
             className="text-slate-300 underline-offset-4 hover:text-white hover:underline"
           >
-            Clutch
+            Google
           </a>
           .
         </p>
